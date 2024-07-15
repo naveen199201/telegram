@@ -8,23 +8,6 @@ import store from './app/store';
 import { Provider, useSelector } from 'react-redux';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
-const CustomThemeProvider = ({ children }) => {
-  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
-
-  const theme = createTheme({
-    palette: {
-      mode: isDarkMode ? 'dark' : 'light',
-    },
-  });
-
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  );
-};
-
 const ThemeWrapper = ({ children }) => {
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
@@ -43,7 +26,6 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
     <ThemeWrapper>
-      {/* <CustomThemeProvider> */}
     <Auth0Provider
        domain="dev-ny7heca578equ14x.us.auth0.com"
        clientId="q9kRIbWWZ0vc1c9EcMEmlO1iEfX1t66v"  
@@ -54,7 +36,6 @@ root.render(
       <App />
     </Auth0Provider>
     </ThemeWrapper>
-    {/* </CustomThemeProvider> */}
     </Provider>
   </React.StrictMode>
 );

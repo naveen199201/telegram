@@ -14,7 +14,7 @@ const ChatList = () => {
             try {
                 const response = await axios.get('https://devapi.beyondchats.com/api/get_all_chats?page=1');
                 setData(response.data.data.data);
-                console.log(response.data.data.data);
+                // console.log(response.data.data.data);
                 setLoading(false);
             } catch (error) {
                 setError(error);
@@ -46,7 +46,7 @@ const ChatList = () => {
             </div>
             <div className='chatList-items'>
                 {data.map((item) => {
-                    return (<ChatItem key={item.id} id={item.id} name={item.creator.name}></ChatItem>)
+                    return (<ChatItem key={item.id} id={item.id} creator={item.creator}></ChatItem>)
                 })}
             </div>
         </div>

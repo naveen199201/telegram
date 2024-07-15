@@ -15,11 +15,9 @@ const ChatDetails = ({modalClose}) => {
 
     const chatId = useSelector(selectChatId);
     const senderId = useSelector(selectSenderId);
-    console.log('chatDetails', senderId, chatId);
     const [chatUser, setChatUser] = useState('');
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
-    const [selftDistructTime, setSelftDistructTime] = useState(0);
     const messagesRef = useRef();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -35,11 +33,6 @@ const ChatDetails = ({modalClose}) => {
                 const response = await axios.get(`https://devapi.beyondchats.com/api/get_chat_messages?chat_id=${chatId}`);
                 function custom_sort(a, b) {
                     return new Date(a.creeated_at).getTime() - new Date(b.creeated_at).getTime();
-                }
-                const result = response.data.data.filter(filterMessages);
-
-                function filterMessages(message) {
-                    return message.sender_id === senderId;
                 }
                 setChatUser(response?.data?.data[0].sender.name)
                 setMessages(response.data.data.sort(custom_sort));
@@ -94,11 +87,11 @@ const ChatDetails = ({modalClose}) => {
                     </IconButton>
                 </div>
                 <div ref={messagesRef} className="chatDetails__messages">
-                    <FlipMove typeName={null}>
+                    {/* <FlipMove typeName={null}> */}
                         {messages.map((message) => (
                             <Message key={message.id} id={message.id} content={message} />
                         ))}
-                    </FlipMove>
+                    {/* </FlipMove> */}
                 </div>
                 
                 <div className="chatDetails__footer">

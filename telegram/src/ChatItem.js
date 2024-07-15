@@ -6,21 +6,22 @@ import './ChatItem.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSenderId, setChat } from './chatSlice';
 
-const ChatItem = ({ id, name }) => {
+const ChatItem = ({ id, creator }) => {
     const dispatch = useDispatch();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const senderId =useSelector(selectSenderId)
+    const senderId = useSelector(selectSenderId)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`https://devapi.beyondchats.com/api/get_chat_messages?chat_id=${id}`);
                 function custom_sort(a, b) {
-                    return new Date(a.creeated_at).getTime() - new Date(b.creeated_at).getTime();
+                    return new Date(b.creeated_at).getTime() - new Date(a.creeated_at).getTime();
                 }
-                setData(response.data.data.sort(custom_sort));
+                const sortedData = response.data.data.sort(custom_sort);
+                setData(sortedData);
                 setLoading(false);
             } catch (error) {
                 setError(error);
@@ -30,7 +31,7 @@ const ChatItem = ({ id, name }) => {
         };
 
         fetchData();
-    },[id]);
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -42,21 +43,21 @@ const ChatItem = ({ id, name }) => {
 
     return (
         <div
-            className={`chatItem ${data[0].sender_id===senderId ? 'chatItem_active' : ''}`}
-            onClick={() => 
-                  dispatch(
+            className={`chatItem ${creator.id === senderId ? 'chatItem_active' : ''}`}
+            onClick={() =>
+                dispatch(
                     setChat({
-                      chatId: id,
-                      senderId:data[0].sender_id
+                        chatId: id,
+                        senderId: creator.id
                     })
-                  )
+                )
             }
         >
             <div className='chatItem_avatar'>
-                <Avatar >{name?name.charAt(0):'U'}</Avatar>
+                <Avatar >{creator.name ? creator.name.charAt(0) : 'U'}</Avatar>
             </div>
             <div className="chatItem__info">
-                <h3>{name ? name : 'Unknown'}</h3>
+                <h3>{creator.name ? creator.name : 'Unknown'}</h3>
                 <p>{data[0]?.message}</p>
             </div>
             {data[0]?.creeated_at && (
