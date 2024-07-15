@@ -10,8 +10,8 @@ import Message from './Message';
 import { timeAgo } from './utils';
 import FlipMove from 'react-flip-move';
 import useMutationObserver from '@rooks/use-mutation-observer';
-
-const ChatDetails = () => {
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+const ChatDetails = ({modalClose}) => {
 
     const chatId = useSelector(selectChatId);
     const senderId = useSelector(selectSenderId);
@@ -75,6 +75,9 @@ const ChatDetails = () => {
         chatId && (
             <div className="chatDetails">
                 <div className="chatDetails__header">
+                <IconButton>
+                        <ArrowBackIcon onClick={modalClose} />
+                    </IconButton>
                     <Avatar className='chatDetails__avatar'>{chatUser?chatUser.charAt(0):'U'}</Avatar>
 
                     {/* <Avatar src={messages[messages.length - 1]?.data?.photo} className="chat__avatar" /> */}

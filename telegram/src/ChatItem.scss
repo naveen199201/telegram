@@ -49,10 +49,20 @@
     height: $height-width-425-600 !important;
     width: $height-width-425-600 !important;
   }
+  .css-17o22dy-MuiAvatar-root{
+    width: 17px !important;
+    height: 17px !important;
+    padding:10px;
+  }
 }
 @media screen and (min-width: 0px) and (max-width: 425px) {
   .chatItem_avatar {
     height: $height-width-425-600 !important;
     width: $height-width-425-600 !important;
+  }
+  .css-17o22dy-MuiAvatar-root{
+    width: 17px !important;
+    height: 17px !important;
+    padding:10px;
   }
 }

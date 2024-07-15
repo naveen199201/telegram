@@ -113,7 +113,10 @@
 }
 @media screen and (min-width: 425px) and (max-width: 600px) {
   .chatDetails {
-    flex: 0.85;
+    flex: 1 0 100%;
+    position:'absolute';
+    height: 100vh;
+    overflow-y: scroll;
     .chatDetails__header {
       padding: 0.45em;
       .chatDetails__avatar {
@@ -124,12 +127,13 @@
     }
     .chatDetails__footer {
       padding: 1.05em 1em;
+      // position: static;
     }
   }
 }
 @media screen and (min-width: 0px) and (max-width: 425px) {
   .chatDetails {
-    flex: 0.9;
+    flex: 1 0 100%;
     .chatDetails__header {
       padding: 0.45em;
       .chatDetails__avatar {
