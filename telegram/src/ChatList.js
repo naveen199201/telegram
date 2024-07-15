@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Header from './Header'
 import ChatItem from './ChatItem.js'
 import axios from 'axios';
 import './ChatList.scss';
