@@ -1,10 +1,20 @@
 @import "./Variables";
 
 .sidebar{
+    background-color: var(--background-color);
+    color: var(--text-color);
     button {
         svg {
         font-size: 1.2rem !important;
-        color: $telegram-text-color;
+        color: var(--text-color);
         }
     }
+    
+}
+.MuiPaper-root {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+}
+.MuiSvgIcon-root {
+    color: var(--text-color) !important;
 }

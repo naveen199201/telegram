@@ -4,16 +4,19 @@
   flex: 0.78;
   display: flex;
   flex-direction: column;
+  // background-image: url('./images/home.png');
+  // background-size: contain;
+  // background-color: #99ba92;
   background-image: url('./images/home.png');
   background-size: contain;
-  background-color: #99ba92;
+  background-color: var(--overlay-color);
   .chatDetails__header {
     padding: 0.25em 0.45em;
     border-bottom: $border;
     display: flex;
     align-items: center;
-    background-color: $telegram-background-color;
-    color: $telegram-text-color;
+    background-color: var(--background-color);
+    color: var(--text-color);
     .chatDetails__avatar {
       margin: 0 1em 0 0.5em;
      background-color: black;
@@ -22,10 +25,10 @@
       flex: 1;
     }
     button {
-      color: $telegram-text-color;
+      color: var(--text-color);
     }
     button:hover {
-      color: $telegram-blue-hover;
+      color: var(--hightlight-color);
     }
   }
   .chatDetails__messages {
@@ -49,19 +52,23 @@
         outline: none;
         border: none;
         border-radius: 5px;
-        background: $telegram-background-color;
-        color: $telegram-text-color;
+        background: var(--background-color);
+        color: var(--text-color);
       }
       button {
         margin-left: 0.5em;
       }
     }
     .chatDetails__buttonIcon {
-      color: $telegram-background-color;
+      color: var(--text-color);
       transition: all 80ms ease-out;
+      padding: 20px;
+      border-radius: 50px;
+      background-color: var(--background-color);
       &:hover {
-        color: $telegram-blue-hover;
+        color: var(--hightlight-color);
       }
+
     }
   }
 }

@@ -5,16 +5,16 @@
   display: flex;
   align-items: center;
   padding: 0.6em;
-  background-color: $telegram-background-color;
+  background-color: var(--background-color);
   border-bottom: $border;
   cursor: pointer;
-  color: $telegram-text-color;
+  color: var(--text-color);
   &:hover {
-    background: $telegram-on-hover;
+    background: var(--hover-color);
   }
   &.chatItem_active{
-    background: $telegram-blue-hover;
-    color: $telegram-background-color;
+    background: var(--hightlight-color);
+    color: var(--background-color);
   }
   .chatItem_avatar {
     margin: 0 0.5em;

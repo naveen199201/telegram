@@ -1,9 +1,25 @@
-$telegram-blue-hover: #3390ec;
-$telegram-text-color: hsl(0, 0%, 0%);
-$telegram-background-color: #fff;
-$telegram-on-hover: #f4f4f5;
+// $telegram-blue-hover: #3390ec;
+// $telegram-text-color: hsl(0, 0%, 0%);
+// $telegram-background-color: #fff;
+// $telegram-on-hover: #f4f4f5;
 
 $border: 1px solid rgba(190, 190, 190, 0.1);
 
 $height-width-600-768: 3.2em;
 $height-width-425-600: 3em;
+
+
+
+$light-theme: (
+  background-color: #ffffff,
+  text-color: #000000,
+  highlight-color: #3390ec,
+  hover-color: #f4f4f5,
+);
+
+$dark-theme: (
+  background-color: #000000,
+  text-color: #ffffff,
+  highlight-color: #3390ec,
+  hover-color: #040405,
+);

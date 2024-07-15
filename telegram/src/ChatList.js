@@ -3,7 +3,6 @@ import ChatItem from './ChatItem.js'
 import axios from 'axios';
 import './ChatList.scss';
 import {SearchOutlined} from '@mui/icons-material';
-
 import Sidebar from './Sidebar.js';
 
 const ChatList = () => {
@@ -15,6 +14,7 @@ const ChatList = () => {
             try {
                 const response = await axios.get('https://devapi.beyondchats.com/api/get_all_chats?page=1');
                 setData(response.data.data.data);
+                console.log(response.data.data.data);
                 setLoading(false);
             } catch (error) {
                 setError(error);
@@ -43,7 +43,6 @@ const ChatList = () => {
                     <SearchOutlined />
                     <input type="text" placeholder="search" />
                 </div>
-               
             </div>
             <div className='chatList-items'>
                 {data.map((item) => {

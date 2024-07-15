@@ -55,9 +55,9 @@ const ChatDetails = () => {
         }
     }, [chatId]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
     if (error) {
         return <div>Error: {error.message}</div>;
@@ -75,15 +75,15 @@ const ChatDetails = () => {
         chatId && (
             <div className="chatDetails">
                 <div className="chatDetails__header">
-                    <Avatar className='chatDetails__avatar'>{chatUser.charAt(0)}</Avatar>
+                    <Avatar className='chatDetails__avatar'>{chatUser?chatUser.charAt(0):'U'}</Avatar>
 
                     {/* <Avatar src={messages[messages.length - 1]?.data?.photo} className="chat__avatar" /> */}
                     <div className="chatDetails__headerContent">
-                        <h3>{chatUser}</h3>
+                        <h3>{chatUser?chatUser:'Unknown'}</h3>
                         <p>
                             Last Seen:{' '}
-                            {messages[messages.length - 1]?.creeated_at &&
-                                timeAgo(messages[messages.length - 1]?.creeated_at)}
+                            {messages[messages.length - 1]?.created_at &&
+                                timeAgo(messages[messages.length - 1]?.created_at)}
                         </p>
                     </div>
                     <IconButton>
@@ -110,7 +110,7 @@ const ChatDetails = () => {
                             <SendRounded />
                         </IconButton>
                     </form>
-                    <IconButton
+                    {/* <IconButton
                         onClick={() =>
                             setSelftDistructTime(
                                 prompt(
@@ -121,7 +121,7 @@ const ChatDetails = () => {
                         className="chatDetails__buttonIcon"
                     >
                         <TimerOutlined />
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton className="chatDetails__buttonIcon">
                         <MicNoneOutlined />
                     </IconButton>

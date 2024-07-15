@@ -1,4 +1,7 @@
 .mainPage {
   height: 100vh;
   display: flex;
+  background-image: url('./images/home.png');
+  background-size: contain;
+  background-color: var(--overlay-color);
 }

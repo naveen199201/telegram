@@ -10,6 +10,8 @@
   overflow-y: scroll;
   height: auto;
   .chatList__header {
+    color:var(--text-color);
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     padding: 0.6em;
@@ -18,8 +20,8 @@
       flex: 1;
       display: flex;
       align-items: center;
-      background: $telegram-on-hover;
-      color: $telegram-text-color;
+      background: var(--hover-color);
+      color: var(--text-color);
       border-radius: 5px;
       padding: 0.3em;
       height: fit-content;
@@ -35,12 +37,12 @@
         color: #fff;
       }
     }
-    button {
-      svg {
-        font-size: 1.2rem !important;
-        color: #f5f5f5;
-      }
-    }
+    // button {
+    //   svg {
+    //     font-size: 1.2rem !important;
+    //     color: #f5f5f5;
+    //   }
+    // }
   }
   .chatList__items{
     flex: 1;
@@ -61,9 +63,9 @@
       opacity: 0.5;
     }
     .chatList__bottomIcon {
-      color: $telegram-text-color;
+      color: var(--text-color);
       &:hover {
-        color: $telegram-blue-hover;
+        color: var(--hightlight-color);
       }
     }
   }
@@ -73,7 +75,7 @@
   padding-bottom: 0 !important;
 }
 .MuiListItem-root:hover {
-  background: $telegram-blue-hover !important;
+  background: var(--hightlight-color) !important;
   color: white !important;
 }
 @media screen and (min-width: 992px) and (max-width: 1200px) {

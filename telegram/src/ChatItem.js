@@ -53,7 +53,7 @@ const ChatItem = ({ id, name }) => {
             }
         >
             <div className='chatItem_avatar'>
-                <Avatar >{data[0].message?.charAt(0)}</Avatar>
+                <Avatar >{name?name.charAt(0):'U'}</Avatar>
             </div>
             <div className="chatItem__info">
                 <h3>{name ? name : 'Unknown'}</h3>

@@ -1,3 +1,4 @@
+import { DarkMode } from '@mui/icons-material';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const chatSlice = createSlice({
