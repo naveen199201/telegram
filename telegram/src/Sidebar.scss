@@ -1,0 +1,10 @@
+@import "./Variables";
+
+.sidebar{
+    button {
+        svg {
+        font-size: 1.2rem !important;
+        color: $telegram-text-color;
+        }
+    }
+}
